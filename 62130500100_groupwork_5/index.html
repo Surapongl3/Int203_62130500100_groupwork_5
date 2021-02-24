@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="script.css">
+  <title>Basic Vue Js - HelloWorld App</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div v-if="checkLiked==0" class="text mt-4">
+      Click Star to like!
+    </div>
+
+    <div v-else class="text mt-4">
+      You like {{ checkLiked }} Photos !!
+    </div> -->
+  
+  <click-star-text :count="checkLiked"></click-star-text>              
+
+
+    <!-- <div class="flex flex-row justify-center  ml-40 mt-5 text-xl">
+      <div id="icon toggle" v-show="search.text ">
+        <input v-model="searchtext" type=text placeholder="Please enter text for searching photos" size="34"
+          class="textinput ">
+      </div>
+
+      <a href="#" @click="toggleicons" v-show="search.icon">
+        <i class="material-icons  icon ">
+          search
+        </i>
+      </a>
+      <button class="bg-yellow-300 icon" v-show="search.icon == false" @click="toggleicons">
+        cancel
+      </button>
+      
+
+    </div> -->
+    <!-- <div class="text-center" v-show ="noResult">
+       'No photo'
+    </div> -->
+    <sbox :result="noResult"
+    :stext="search.text"
+    :sicon="search.icon"
+    @mod="araigordai"
+    @icont="toggleicons"></sbox>
+    
+    <show-image v-show="isShowCar"
+     :showcarsrc="showCarSrc"
+     @isshow ="isShowCar=false">
+  </show-image>
+ 
+    <car-image :carobj ="cars" 
+      @hov="hovers"
+      @hovoff="hoversOff" 
+      @toggle="click"
+      @showc="showCar">
+  
+    </car-image>
+   
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- my main.js -->
+  <script src="./main.js"> </script>
+  <script src="./calledComponents/PhotoItem.js"></script>
+  <script src="./calledComponents/PhotoView.js"></script>
+  <script src="./calledComponents/PhotoSearch.js"></script>
+ <script>
+   const mountedApp = app.mount('#app')
+ </script>
+</body>
+
+</html>
